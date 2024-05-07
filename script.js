@@ -22,27 +22,14 @@ function onReady() {
   // - Rendered to the DOM
 }
 
-// function septerAttack(event) {
-//   const hpMeter = document.getElementById('hit-meter');
-//   hpMeter.innerText = `${(enemyHP -= 14)} HP`;
-//   const apMeter = document.getElementById('attack-meter');
-//   apMeter.innerText = `${(attacksAP -= 12)} AP`;
-
-//   checkHealth();
-// }
-
 function septerAttack(event) {
   const hpMeter = document.getElementById('hit-meter');
-  console.log('hit me');
   enemyHP -= 14;
   enemyHP = Math.max(enemyHP, 0);
-  //   hpMeter.innerText = ${(enemyHP -= 14)} HP;
   hpMeter.innerText = `${enemyHP} HP`;
-  console.log(enemyHP);
   const apMeter = document.getElementById('attack-meter');
   attacksAP -= 12;
   attacksAP = Math.max(attacksAP, 0);
-  //   apMeter.innerText = ${(attacksAP -= 12)} AP;
   apMeter.innerText = `${attacksAP} AP`;
 
   checkHealth();
