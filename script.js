@@ -22,43 +22,67 @@ function onReady() {
   // - Rendered to the DOM
 }
 
+// function septerAttack(event) {
+//   const hpMeter = document.getElementById('hit-meter');
+//   hpMeter.innerText = `${(enemyHP -= 14)} HP`;
+//   const apMeter = document.getElementById('attack-meter');
+//   apMeter.innerText = `${(attacksAP -= 12)} AP`;
+
+//   checkHealth();
+// }
+
 function septerAttack(event) {
   const hpMeter = document.getElementById('hit-meter');
   console.log('hit me');
-  hpMeter.innerText = `${(enemyHP -= 14)} HP`;
-  console.log(attacksAP);
+  enemyHP -= 14;
+  enemyHP = Math.max(enemyHP, 0);
+  //   hpMeter.innerText = ${(enemyHP -= 14)} HP;
+  hpMeter.innerText = `${enemyHP} HP`;
+  console.log(enemyHP);
   const apMeter = document.getElementById('attack-meter');
-  apMeter.innerText = `${(attacksAP -= 12)} AP`;
+  attacksAP -= 12;
+  attacksAP = Math.max(attacksAP, 0);
+  //   apMeter.innerText = ${(attacksAP -= 12)} AP;
+  apMeter.innerText = `${attacksAP} AP`;
 
   checkHealth();
 }
+
 function entangleAttack(event) {
   const hpMeter = document.getElementById('hit-meter');
-  console.log('hit me');
-  hpMeter.innerText = `${(enemyHP -= 9)} HP`;
-  console.log(attacksAP);
+  enemyHP -= 9;
+  enemyHP = Math.max(enemyHP, 0);
+  hpMeter.innerText = `${enemyHP} HP`;
   const apMeter = document.getElementById('attack-meter');
-  apMeter.innerText = `${(attacksAP -= 23)} AP`;
+  attacksAP -= 23;
+  attacksAP = Math.max(attacksAP, 0);
+  apMeter.innerText = `${attacksAP} AP`;
 
   checkHealth();
 }
+
 function bladeAttack(event) {
   const hpMeter = document.getElementById('hit-meter');
-  console.log('hit me');
-  hpMeter.innerText = `${(enemyHP -= 47)} HP`;
-  console.log(attacksAP);
+  enemyHP -= 47;
+  enemyHP = Math.max(enemyHP, 0);
+  hpMeter.innerText = `${enemyHP} HP`;
   const apMeter = document.getElementById('attack-meter');
-  apMeter.innerText = `${(attacksAP -= 38)} AP`;
+  attacksAP -= 38;
+  attacksAP = Math.max(attacksAP, 0);
+  apMeter.innerText = `${attacksAP} AP`;
 
   checkHealth();
 }
+
 function fireAttack(event) {
   const hpMeter = document.getElementById('hit-meter');
-  console.log('hit me');
-  hpMeter.innerText = `${(enemyHP -= 25)} HP`;
-  console.log(attacksAP);
+  enemyHP -= 25;
+  enemyHP = Math.max(enemyHP, 0);
+  hpMeter.innerText = `${enemyHP} HP`;
   const apMeter = document.getElementById('attack-meter');
-  apMeter.innerText = `${(attacksAP -= 33)} AP`;
+  attacksAP -= 33;
+  attacksAP = Math.max(attacksAP, 0);
+  apMeter.innerText = `${attacksAP} AP`;
 
   checkHealth();
 }
