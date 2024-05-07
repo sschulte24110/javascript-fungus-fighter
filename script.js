@@ -4,6 +4,8 @@ onReady();
 // Example:
 let attacksAP = 100;
 let enemyHP = 100;
+let hpMeter = document.querySelector('.hp-text');
+let apMeter = document.querySelector('.ap-text');
 let arcaneButton = document.getElementById('arcane-button');
 let entangleButton = document.getElementById('entangle-button');
 let dragonButton = document.getElementById('dragon-blade');
@@ -29,14 +31,11 @@ function onReady() {
 // function disableButtons() {}
 
 function septerAttack(event) {
-  // const hpMeter = document.getElementById('hit-meter');
-  const hpMeter = document.querySelector('.hp-text');
   enemyHP -= 14;
   hpMeterV.value -= 14;
   enemyHP = Math.max(enemyHP, 0);
   hpMeter.innerText = `${enemyHP} HP`;
-  // const apMeter = document.getElementById('attack-meter');
-  const apMeter = document.querySelector('.ap-text');
+
   attacksAP -= 12;
   apMeterV.value -= 12;
   attacksAP = Math.max(attacksAP, 0);
@@ -46,14 +45,11 @@ function septerAttack(event) {
 }
 
 function entangleAttack(event) {
-  // const hpMeter = document.getElementById('hit-meter');
-  const hpMeter = document.querySelector('.hp-text');
   enemyHP -= 9;
   hpMeterV.value -= 9;
   enemyHP = Math.max(enemyHP, 0);
   hpMeter.innerText = `${enemyHP} HP`;
-  // const apMeter = document.getElementById('attack-meter');
-  const apMeter = document.querySelector('.ap-text');
+
   attacksAP -= 23;
   apMeterV.value -= 23;
   attacksAP = Math.max(attacksAP, 0);
@@ -63,14 +59,11 @@ function entangleAttack(event) {
 }
 
 function bladeAttack(event) {
-  // const hpMeter = document.getElementById('hit-meter');
-  const hpMeter = document.querySelector('.hp-text');
   enemyHP -= 47;
   hpMeterV.value -= 47;
   enemyHP = Math.max(enemyHP, 0);
   hpMeter.innerText = `${enemyHP} HP`;
-  // const apMeter = document.getElementById('attack-meter');
-  const apMeter = document.querySelector('.ap-text');
+
   attacksAP -= 38;
   apMeterV.value -= 38;
   attacksAP = Math.max(attacksAP, 0);
@@ -80,14 +73,11 @@ function bladeAttack(event) {
 }
 
 function fireAttack(event) {
-  // const hpMeter = document.getElementById('hit-meter');
-  const hpMeter = document.querySelector('.hp-text');
   enemyHP -= 25;
   hpMeterV.value -= 25;
   enemyHP = Math.max(enemyHP, 0);
   hpMeter.innerText = `${enemyHP} HP`;
-  // const apMeter = document.getElementById('attack-meter');
-  const apMeter = document.querySelector('.ap-text');
+
   attacksAP -= 33;
   apMeterV.value -= 33;
   attacksAP = Math.max(attacksAP, 0);
@@ -118,8 +108,18 @@ function checkHealth() {
     starButton.disabled = true;
     // fungusMovement.disabled = true;
   }
+  if (enemyHP < 50) {
+    setInterval(intervalHealth, 1000);
+  }
 }
 
-// function intervalHealth() {
-
-// }
+function intervalHealth() {
+  if (enemyHP === 100) {
+    let myInterval = setInterval(intervalHealth, 1000);
+    clearInterval(myInterval);
+  } else {
+    enemyHP++;
+  }
+  hpMeterV.value = enemyHP;
+  hpMeter.innerHTML = `${enemyHP} HP`;
+}
