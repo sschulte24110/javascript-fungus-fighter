@@ -9,6 +9,8 @@ let entangleButton = document.getElementById('entangle-button');
 let dragonButton = document.getElementById('dragon-blade');
 let starButton = document.getElementById('fire-button');
 let fungusMovement = document.getElementsByClassName('freaky-fungus walk')[0];
+let apMeterV = document.getElementById('ap-meter');
+let hpMeterV = document.getElementById('hp-meter');
 // let fungusMovement = document.querySelectorAll('.attack-btn');
 console.log(fungusMovement);
 
@@ -24,15 +26,19 @@ function onReady() {
   // - Rendered to the DOM
 }
 
+// function disableButtons() {}
+
 function septerAttack(event) {
   // const hpMeter = document.getElementById('hit-meter');
   const hpMeter = document.querySelector('.hp-text');
   enemyHP -= 14;
+  hpMeterV.value -= 14;
   enemyHP = Math.max(enemyHP, 0);
   hpMeter.innerText = `${enemyHP} HP`;
   // const apMeter = document.getElementById('attack-meter');
   const apMeter = document.querySelector('.ap-text');
   attacksAP -= 12;
+  apMeterV.value -= 12;
   attacksAP = Math.max(attacksAP, 0);
   apMeter.innerText = `${attacksAP} AP`;
 
@@ -43,11 +49,13 @@ function entangleAttack(event) {
   // const hpMeter = document.getElementById('hit-meter');
   const hpMeter = document.querySelector('.hp-text');
   enemyHP -= 9;
+  hpMeterV.value -= 9;
   enemyHP = Math.max(enemyHP, 0);
   hpMeter.innerText = `${enemyHP} HP`;
   // const apMeter = document.getElementById('attack-meter');
   const apMeter = document.querySelector('.ap-text');
   attacksAP -= 23;
+  apMeterV.value -= 23;
   attacksAP = Math.max(attacksAP, 0);
   apMeter.innerText = `${attacksAP} AP`;
 
@@ -58,11 +66,13 @@ function bladeAttack(event) {
   // const hpMeter = document.getElementById('hit-meter');
   const hpMeter = document.querySelector('.hp-text');
   enemyHP -= 47;
+  hpMeterV.value -= 47;
   enemyHP = Math.max(enemyHP, 0);
   hpMeter.innerText = `${enemyHP} HP`;
   // const apMeter = document.getElementById('attack-meter');
   const apMeter = document.querySelector('.ap-text');
   attacksAP -= 38;
+  apMeterV.value -= 38;
   attacksAP = Math.max(attacksAP, 0);
   apMeter.innerText = `${attacksAP} AP`;
 
@@ -73,11 +83,13 @@ function fireAttack(event) {
   // const hpMeter = document.getElementById('hit-meter');
   const hpMeter = document.querySelector('.hp-text');
   enemyHP -= 25;
+  hpMeterV.value -= 25;
   enemyHP = Math.max(enemyHP, 0);
   hpMeter.innerText = `${enemyHP} HP`;
   // const apMeter = document.getElementById('attack-meter');
   const apMeter = document.querySelector('.ap-text');
   attacksAP -= 33;
+  apMeterV.value -= 33;
   attacksAP = Math.max(attacksAP, 0);
   apMeter.innerText = `${attacksAP} AP`;
 
@@ -107,3 +119,7 @@ function checkHealth() {
     // fungusMovement.disabled = true;
   }
 }
+
+// function intervalHealth() {
+
+// }
